@@ -1,7 +1,7 @@
 #include <stdio.h>
 /**
   * main - prints alphabet in lower case
-  * Return: zero success
+  * Return: zero succes
   */
 int main(void)
 {
@@ -15,4 +15,3 @@ int main(void)
 	putchar('\n');
 	return (0);
 }
-	

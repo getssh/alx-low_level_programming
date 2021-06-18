@@ -1,6 +1,9 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h>
+/**
+ * main - print out comditional statments
+ * Return: zero success
 /* more headers goes there */
 
 /* betty style doc for function main goes there */
