@@ -1,5 +1,4 @@
 Pointers and arrays in c, project tasks in this project
-
 0-reset_to_98.c
 1-swap.c
 100-atoi.c
