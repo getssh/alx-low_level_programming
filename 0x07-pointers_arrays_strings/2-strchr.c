@@ -7,16 +7,21 @@
   */
 char *_strchr(char *s, char c)
 {
-	int i, len;
-
-	for (len = 0; s[len] != '\0'; len++)
-		;
-
-	for (i = 0; i < len; i++)
+	while (*s != '\0')
 	{
-		if (s[i] == c)
-			return (&s[i]);
+		if (*s == c)
+		{
+			return (s);
+		}
+		s++;
 	}
-
+	/**
+	 * if c is '\0', you should return
+	 * the pointer to the `\0` of the string str
+	 */
+	if (*s == c)
+	{
+		return (s);
+	}
 	return (NULL);
 }
