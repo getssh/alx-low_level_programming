@@ -7,40 +7,44 @@
  */
 int main(int argc, char *argv[])
 {
-	int c1 = 0, c2 = 0, c3 = 0, c4 = 0, c5 = 0, res, cents;
+	int value, c;
 
-	cents = atoi(argv[1]);
-	if (argc < 2 || argc > 2)
+	c = 0;
+	if (argc != 2)
 	{
 		printf("Error\n");
 		return (1);
 	}
-	while (cents >= 25)
+	value = atoi(argv[1]);
+	if (value < 0)
 	{
-		c1 = cents / 25;
-		cents %= 25;
+		printf("%d\n", 0);
+		return (0);
 	}
-	while (cents >= 10)
+	if (value % 25 >= 0)
 	{
-		c2 = cents / 10;
-		cents %= 10;
+		c += value / 25;
+		value = value % 25;
 	}
-	while (cents >= 5)
+	if (value % 10 >= 0)
 	{
-		c3 = cents / 5;
-		cents %= 5;
+		c += value / 10;
+		value = value % 10;
 	}
-	while (cents >= 2)
+	if (value % 5 >= 0)
 	{
-		c4 = cents / 2;
-		cents %= 2;
+		c += value / 5;
+		value = value % 5;
 	}
-	while (cents >= 1)
+	if (value % 2 >= 0)
 	{
-		c5 = cents / 1;
-		cents %= 1;
+		c += value / 2;
+		value = value % 2;
 	}
-	res = c1 + c2 + c3 + c4 + c5;
-	printf("%d\n", res);
+	if (value % 1 >= 0)
+	{
+		c += value / 1;
+	}
+	printf("%d\n", c);
 	return (0);
 }
