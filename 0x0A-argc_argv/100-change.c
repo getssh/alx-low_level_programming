@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
 	int c1 = 0, c2 = 0, c3 = 0, c4 = 0, c5 = 0, res, cents;
 
 	cents = atoi(argv[1]);
-	if (argc == 1 || argc > 2)
+	if (argc < 2 || argc > 2)
 	{
 		printf("Error\n");
 		return (1);
