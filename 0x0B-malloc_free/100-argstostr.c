@@ -1,14 +1,10 @@
 #include "holberton.h"
-#include <stdio.h>
-#include <stdlib.h>
-
 /**
- * *argstostr - function
- *
- * @ac: value one
- * @av: another value
- * Return: char pointer
- */
+  * argstostr - print each argument
+  * @ac: argument count
+  * @av: argument vector
+  * Return: pointer to the split string
+  */
 char *argstostr(int ac, char **av)
 {
 	int i, j, k, len;
@@ -42,5 +38,6 @@ char *argstostr(int ac, char **av)
 
 		k++;
 	}
+	str[k] = '\0';
 	return (str);
 }
