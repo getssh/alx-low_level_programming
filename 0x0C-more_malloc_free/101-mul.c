@@ -7,10 +7,15 @@
   */
 int main(int argc, char *argv[])
 {
-	long int res;
+	unsigned int res;
 	int i, j;
 
-	if (argc > 1)
+	if (argc != 3)
+	{
+		printf("Error\n");
+		exit(98);
+	}
+	if (argc == 1)
 	{
 		for (i = 1; i < argc; i++)
 		{
@@ -24,16 +29,9 @@ int main(int argc, char *argv[])
 			}
 		}
 	}
-	if (argc == 3)
-	{
-		res = atoi(argv[1]) * atoi(argv[2]);
-		printf("%ld\n", res);
-	}
-	else
-	{
-		printf("Error\n");
-		exit(98);
-	}
+
+	res = atoi(argv[1]) * atoi(argv[2]);
+	printf("%u\n", res);
 
 	return (0);
 }
