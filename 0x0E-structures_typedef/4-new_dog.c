@@ -8,15 +8,30 @@
   */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *new_dog;
+        dog_t *new;
 
-	new_dog = malloc(sizeof(dog_t));
-	if (new_dog == NULL)
-		return (NULL);
-	{
-		new_dog->name = name;
-		new_dog->age = age;
-		new_dog->owner = owner;
-	}
-	return (new_dog);
+        new = malloc(sizeof(dog_t));
+        if (new == NULL)
+        {
+                return (new);
+        }
+
+        new->name = malloc(sizeof(name) + 1);
+        if (new->name == NULL)
+        {
+                free(new);
+                return (NULL);
+        }
+
+        new->owner = malloc(sizeof(owner) + 1);
+        if (new->owner == NULL)
+        {
+                free(new->name);
+                free(new);
+                return (NULL);
+        }
+        cpy(new->name, name);
+        new->age = age;
+        cpy(new->owner, owner);
+        return (new);
 }
