@@ -1,9 +1,11 @@
+#include <stdio.h>
 #include "dog.h"
+#include <stdlib.h>
 /**
-  * print_dog - print out the strucure dog
-  * @d: struct dog
-  * Return: void
-  */
+ * print_dog - check the code for Holberton School students.
+ *@d: pointer to struct dog
+ * Return: void
+ */
 void print_dog(struct dog *d)
 {
 	if (d == NULL)
