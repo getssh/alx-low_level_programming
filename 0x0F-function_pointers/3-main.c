@@ -1,14 +1,17 @@
+#include <stdio.h>
 #include "3-calc.h"
+#include <stdlib.h>
+
 /**
-  * main - applay basic math opration on two numbers
-  * @argc: count arguments of argv
-  * @argv: argument vector (2d string array)
-  * Return: 0 (sucess)
-  */
+ * main - give result for two nums with obration
+ * @argc: arg count int
+ * @argv: arg vector char
+ * Return: int
+ */
 int main(int argc, char *argv[])
 {
-	int num1, num2, res;
-	char sign;
+	int i, j, res;
+	char s;
 
 	if (argc != 4)
 	{
@@ -20,22 +23,15 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(99);
 	}
-
-	sign = argv[2][0];
-	if (sign != '+' && sign != '-' && sign != '*' && sign != '/' && sign != '%')
+	s = argv[2][0];
+	if (s != '+' && s != '-' && s != '*' && s != '/' && s != '%')
 	{
 		printf("Error\n");
 		exit(99);
 	}
-	if ((sign == '/' && argv[3][0] == '0') || (sign == '%' && argv[3][0] == '0'))
-	{
-		printf("Error\n");
-		exit(100);
-	}
-
-	num1 = atoi(argv[1]);
-	num2 = atoi(argv[3]);
-	res = (get_op_func(argv[2]))(num1, num2);
+	i = atoi(argv[1]);
+	j = atoi(argv[3]);
+	res = (get_op_func(argv[2]))(i, j);
 	printf("%d\n", res);
 	return (0);
 }

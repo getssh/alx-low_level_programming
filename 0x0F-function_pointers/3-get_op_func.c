@@ -1,9 +1,13 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "3-calc.h"
+
 /**
-  * get_op_func - select the disired function based on input
-  * @s: passed string
-  * Return: function pointer to the selected function
-  */
+ * *get_op_func - pointer ot oprator fun
+ * @s: opetrtor
+ *
+ * Return: pointer to oprator fun
+ */
 int (*get_op_func(char *s))(int, int)
 {
 	op_t ops[] = {
@@ -19,7 +23,6 @@ int (*get_op_func(char *s))(int, int)
 	i = 0;
 	while (i < 5)
 	{
-		/* if (*s == '+' || *s == '-' || *s == '*' || *s == '/' || *s == '%') */
 		if (s[0] == ops[i].op[0])
 		{
 			return (ops[i].f);
