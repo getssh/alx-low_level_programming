@@ -1,7 +1,7 @@
 #include "3-calc.h"
 /**
   * main - applay basic math opration on two numbers
-  * @argc: count arguments
+  * @argc: count arguments of argv
   * @argv: argument vector (2d string array)
   * Return: 0 (sucess)
   */
