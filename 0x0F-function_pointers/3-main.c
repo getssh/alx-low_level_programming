@@ -27,11 +27,11 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(99);
 	}
-	if ((sign == '/' && argv[3][0] == '0') || (sign == '%' && argv[3][0] == '0'))
+	/*if ((sign == '/' && argv[3][0] == '0') || (sign == '%' && argv[3][0] == '0'))
 	{
 		printf("Error\n");
 		exit(100);
-	}
+	}*/
 
 	num1 = atoi(argv[1]);
 	num2 = atoi(argv[3]);
