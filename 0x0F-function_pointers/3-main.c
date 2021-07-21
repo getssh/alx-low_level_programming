@@ -8,7 +8,7 @@
 int main(int argc, char *argv[])
 {
 	int num1, num2, res;
-	char sign;
+	char sign, s2;
 
 	if (argc != 4)
 	{
@@ -27,7 +27,8 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(99);
 	}
-	if ((sign == '/' && argv[3][0] == '0') || (sign == '%' && argv[3][0] == '0'))
+	s2 = argv[3][0];
+	if ((sign == '/' && s2 == '0') || (sign == '%' && s2 == '0'))
 	{
 		printf("Error\n");
 		exit(100);
