@@ -1,52 +1,62 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "3-calc.h"
 /**
- * op_add - fun to add two int
- * @a: first value
- * @b: second value
- * Return: result
- */
+  * op_add - add two nums
+  * @a: first number
+  * @b: second number
+  * Return: a + b
+  */
 int op_add(int a, int b)
 {
 	return (a + b);
 }
+
 /**
- * op_sub - fun to sub two int
- * @a: first value
- * @b: second value
- * Return: result
+ * op_sub - substract ops
+ * @a: first number
+ * @b: second number
+ * Return: a - b
  */
 int op_sub(int a, int b)
 {
 	return (a - b);
 }
 /**
- * op_mul - fun to multiply two int
- * @a: first value
- * @b: second value
- * Return: result
+ * op_mul - multiply two nums
+ * @a: first number
+ * @b: second number
+ * Return: a * b
  */
 int op_mul(int a, int b)
 {
 	return (a * b);
 }
 /**
- * op_div - fun to divied two int
- * @a: first value
- * @b: second value
- * Return: result
+ * op_div - divid two nums
+ * @a: first number
+ * @b: second number
+ * Return: a / b
  */
 int op_div(int a, int b)
 {
+	if (b == 0)
+	{
+		printf("Error\n");
+		exit(100);
+	}
 	return (a / b);
 }
 /**
- * op_mod - fun to add two int
- * @a: first value
- * @b: second value
- * Return: result
+ * op_mod - reminder of two nums
+ * @a: first number
+ * @b: second number
+ * Return: a + b
  */
 int op_mod(int a, int b)
 {
+	if (b == 0)
+	{
+		printf("Error\n");
+		exit(100);
+	}
 	return (a % b);
 }

@@ -8,7 +8,7 @@
 int main(int argc, char *argv[])
 {
 	int num1, num2, res;
-	char sign, s2;
+	char sign;
 
 	if (argc != 4)
 	{
@@ -27,12 +27,15 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(99);
 	}
-	s2 = argv[3][0];
-	if ((sign == '/' && s2 == '0') || (sign == '%' && s2 == '0'))
-	{
-		printf("Error\n");
-		exit(100);
-	}
+	/**
+	 *works fine byt the checker failed it
+	* s2 = argv[3][0];
+	* if ((sign == '/' && s2 == '0') || (sign == '%' && s2 == '0'))
+	*{
+	*	printf("Error\n");
+	*	exit(100);
+	* }
+	*/
 	num1 = atoi(argv[1]);
 	num2 = atoi(argv[3]);
 	res = (get_op_func(argv[2]))(num1, num2);
