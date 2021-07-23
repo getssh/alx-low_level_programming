@@ -1,56 +1,77 @@
 #include "variadic_functions.h"
 /**
-  * print_all - print passed arguments based on the formats
-  * @format: format used to print the passed argument
+  * _char - print char
+  * @args: passed va_list
   * Return: void
   */
+void _char(va_list args)
+{
+	printf("%c", va_arg(args, int));
+}
+/**
+ * _int - print int
+ * @args: passed va_list
+ * Return: void
+ */
+void _int(va_list args)
+{
+	printf("%d", va_arg(args, int));
+}
+/**
+ * _float - print float
+ * @args: passed va_list
+ * Return: void
+ */
+void _float(va_list args)
+{
+	printf("%f", va_arg(args, double));
+}
+/**
+ * _string - print string
+ * @args: passed va_list
+ * Return: void
+ */
+void _string(va_list args)
+{
+	char *s = va_arg(args, char*);
+
+	printf("%s", s == NULL ? "(nil)" : s);
+}
+/**
+ * print_all - print passed arguments based on the formats
+ * @format: format used to print the passed argument
+ * Return: void
+ */
 void print_all(const char * const format, ...)
 {
-	int _int, i = 0, len = 0;
-	int _char;
-	double _float;
-	char *string;
+	void (*fun[])(va_list) = {_char, _int, _float, _string};
+	void (*pick)(va_list);
+	char sign[4] = {'c', 'i', 'f', 's'};
 	va_list args;
+	int i = 0, j = 0, s = 0;
 
-	while (format[len] != 0)
-		len++;
 	va_start(args, format);
 	while (format[i] != '\0')
 	{
-		switch (format[i])
+		j = 0;
+		while (j < 4)
 		{
-			case 'c':
-			{	
-				_char = va_arg(args, int);
-				printf("%c", _char);
-				break;
-			}
-			case 'i':
+			if (sign[j] == format[i])
 			{
-				_int = va_arg(args, int);
-				printf("%d", _int);
+				pick = fun[j];
+				if (s != 0)
+				{
+					printf(", ");
+				}
+				s = 1;
+				pick(args);
 				break;
 			}
-			case 'f':
-			{
-				_float = va_arg(args, double);
-				printf("%f", _float);
-				break;
-			}
-			case 's':
-			{
-				string = va_arg(args, char*);
-				printf("%s", string);
-				break;
-			}
-		}
-		while (i < len - 1)
-		{
-			printf(", ");
-			break;
+			j++;
+			pick = NULL;
 		}
 		i++;
 	}
-	va_end(args);
 	putchar('\n');
+	va_end(args);
 }
