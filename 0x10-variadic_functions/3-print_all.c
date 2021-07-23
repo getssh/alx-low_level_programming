@@ -48,10 +48,10 @@ void print_all(const char * const format, ...)
 	void (*pick)(va_list);
 	char sign[4] = {'c', 'i', 'f', 's'};
 	va_list args;
-	int i = 0, j = 0, s = 0;
+	int i = 0, j = 0, flag = 0;
 
 	va_start(args, format);
-	while (format[i] != '\0' && format != NULL)
+	while (format != NULL  && format[i] != '\0')
 	{
 		j = 0;
 		while (j < 4)
@@ -59,11 +59,9 @@ void print_all(const char * const format, ...)
 			if (sign[j] == format[i])
 			{
 				pick = fun[j];
-				if (s != 0)
-				{
+				if (flag != 0)
 					printf(", ");
-				}
-				s = 1;
+				flag = 1;
 				pick(args);
 				break;
 			}
