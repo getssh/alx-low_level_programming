@@ -22,7 +22,7 @@ list_t *add_node_end(list_t **head, const char *str)
 	}
 
 	dupstr = strdup(str);
-	for (length = 0; dupstr[length] != '\0'; length++)
+	for (length = 0; str[length] != '\0'; length++)
 		;
 	last_ptr->len = length;
 	last_ptr->str = dupstr;
