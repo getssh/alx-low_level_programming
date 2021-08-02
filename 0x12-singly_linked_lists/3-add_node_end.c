@@ -1,42 +1,42 @@
 #include "lists.h"
 /**
-  * add_node_end - add node at the end
-  * @head: head of the node
-  * @str: string to be printed
-  * Return: address of the last pointer
-  */
+ * add_node_end - add node at the end
+ * @head: head of the node
+ * @str: string to be printed
+ * Return: address of the last pointer
+ */
 list_t *add_node_end(list_t **head, const char *str)
 {
 	list_t *ptr;
-	list_t *last_ptr;
-	char *dupstr;
-	int length;
+	list_t *last;
+	int len;
 
-	last_ptr = malloc(sizeof(list_t));
-	if (last_ptr == NULL)
-		return (NULL);
-	if (str == NULL)
+	ptr = malloc(sizeof(list_t));
+	if (ptr == NULL)
 	{
-		free(last_ptr);
+		free(ptr);
 		return (NULL);
 	}
-
-	dupstr = strdup(str);
-	for (length = 0; str[length] != '\0'; length++)
-		;
-	last_ptr->len = length;
-	last_ptr->str = dupstr;
-	last_ptr->next = NULL;
-
 	if (*head == NULL)
-		*head = last_ptr;
+		*head = ptr;
 	else
 	{
-		ptr = *head;
-		while (ptr->next != NULL)
-			ptr = ptr->next;
-		ptr->next = last_ptr;
+		last = malloc(sizeof(list_t));
+		last->next = *head;
+		while (last->next != NULL)
+			last = last->next;
+		last->next = ptr;
 	}
 
+	ptr->str = strdup(str);
+	if (ptr->str == NULL)
+	{
+		free(ptr->str);
+		free(ptr);
+		return (NULL);
+	}
+	for (len = 0; ptr->str[len] != '\0'; len++)
+		;
+	ptr->len = len;
 	return (*head);
 }
