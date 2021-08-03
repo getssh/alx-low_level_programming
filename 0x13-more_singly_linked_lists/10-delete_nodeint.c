@@ -22,7 +22,7 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 	{
 		*head = traverse->next;
 		free(traverse);
-		traverse = NULL;
+		/*traverse = NULL;*/
 		return (1);
 	}
 	else
@@ -35,7 +35,6 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		}
 		prev->next = traverse->next;
 		free(traverse);
-		traverse = NULL;
 		return (1);
 	}
 
