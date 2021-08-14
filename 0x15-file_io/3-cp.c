@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "%s\n", "Usage: cp file_from file_to");
 		exit(97);
 	}
-	opn = open(from, O_RDWR);
+	opn = open(from, O_RDONLY);
 	red = read(opn, buff, 1024);
 	if (opn == -1 || red == -1)
 	{
@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\b", opn);
 		exit(100);
 	}
-	opn2 = open(to, O_CREAT | O_RDWR | O_TRUNC | O_SYNC, 0666);
+	opn2 = open(to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	/*		S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);*/
 	for (len = 0; buff[len] != '\0'; len++)
 		;
