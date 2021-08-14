@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 		dprintf(2, "Error: Can't close fd %d\b", opn);
 		exit(100);
 	}
-	opn2 = open(to, O_TRUNC | O_CREAT | O_WRONLY, 0664);
+	opn2 = open(to, O_CREAT | O_WRONLY | O_TRUNC | O_SYNC, 0664);
 	/*		S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);*/
 	for (len = 0; buff[len] != '\0'; len++)
 		;
