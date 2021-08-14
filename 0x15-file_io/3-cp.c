@@ -19,13 +19,13 @@ int main(int argc, char *argv[])
 	}
 	opn = open(from, O_RDONLY);
 	red = read(opn, buff, 1024);
-	if (opn < 0 || red < 0)
+	if (opn == -1 || red == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from %s\n", from);
 		exit(98);
 	}
 	cls = close(opn);
-	if (cls < 0)
+	if (cls == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\b", opn);
 		exit(100);
@@ -34,14 +34,15 @@ int main(int argc, char *argv[])
 	/*		S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);*/
 	for (len = 0; buff[len] != '\0'; len++)
 		;
+	len++;
 	wrt = write(opn2, buff, len);
-	if (opn2 < 0 || wrt < 0)
+	if (opn2 == -1 || wrt == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", to);
 		exit(99);
 	}
 	cls2 = close(opn2);
-	if (cls2 < 0)
+	if (cls2 == -1)
 	{
 		dprintf(2, "Error: Can't close fd %d\b", opn2);
 		exit(100);
